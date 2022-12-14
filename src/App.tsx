@@ -9,8 +9,6 @@ function App() {
     'This is an editable text.'
   );
 
-  const [ellipsis, setEllipsis] = useState(true);
-
   return (
     <div>
       <Row gutter={8} justify={'center'}>

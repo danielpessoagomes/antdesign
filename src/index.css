@@ -1,9 +1,3 @@
-.Column {
-  background-color: #09f;
-  color: #fff;
-  padding: 24px;
-}
-
-.Column:nth-child(odd) {
-  background-color: #08f;
+#root > .ant-layout {
+  height: 100vh;
 }
