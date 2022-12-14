@@ -44,3 +44,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Criando o projeto
+
+> npx create-react-app antdesign --template typescript
+
+# Instalando AntDesign
+
+> npm install antd
+
+# Configurando Prettier
+
+Settings
+{
+"editor.formatOnPaste": true,
+"editor.formatOnType": true,
+"editor.formatOnSave": true,
+"cSpell.language": "en,pt,pt_BR",
+}
+
+.prettierrc
+{
+"printWidth": 60,
+"singleQuote": true,
+"jsxSingleQuote": true
+}
