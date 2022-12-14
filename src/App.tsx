@@ -1,24 +1,54 @@
-import { Col, Row, Input } from 'antd';
-import { useState } from 'react';
+import { Form, Col, Row, Input, Button } from 'antd';
 import './index.css';
 
 function App(): JSX.Element {
-  const [name, setName] = useState('');
-
   return (
     <div>
-      <Row gutter={8} justify={'center'}>
-        <Col span={4}>
-          <Input
-            placeholder={'E.g.: Julio Costa'}
-            size={'large'}
-            onChange={(e) => {
-              setName(e.currentTarget.value);
-            }}
-          />
-        </Col>
-        <Col span={4}>{name}</Col>
-      </Row>
+      <Form
+        onFinish={(form) => {
+          console.log(form);
+        }}
+        layout={'vertical'}
+        autoComplete={'off'}
+      >
+        <Row gutter={8}>
+          <Col span={8}>
+            <Form.Item
+              label={'Primeiro Nome'}
+              name={'primeiroNome'}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={8}>
+            <Form.Item
+              label={'Ultimo Nome'}
+              name={'ultimoNome'}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={16}>
+            <Form.Item
+              label={'Email'}
+              name={'email'}
+              rules={[
+                {
+                  required: true,
+                  message: 'E-mail é obrigatório',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Button type={'primary'} htmlType={'submit'}>
+              Enviar dados
+            </Button>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 }
