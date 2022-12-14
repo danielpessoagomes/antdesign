@@ -1,34 +1,23 @@
-import { Col, Row, Table } from 'antd';
-import { useEffect, useState } from 'react';
+import { Col, Row, Input } from 'antd';
+import { useState } from 'react';
 import './index.css';
-import { User } from './../sdk/@types/User';
-import UserService from './../sdk/services/User.service';
 
 function App(): JSX.Element {
-  const [users, setUsers] = useState<User.Summary[]>([]);
-
-  useEffect(() => {
-    UserService.getAllUsers().then(setUsers);
-  }, []);
+  const [name, setName] = useState('');
 
   return (
     <div>
       <Row gutter={8} justify={'center'}>
-        <Col span={24}>
-          <Table
-            dataSource={users}
-            columns={[
-              {
-                dataIndex: 'name',
-                title: 'Nome',
-              },
-              {
-                dataIndex: 'email',
-                title: 'E-mail',
-              },
-            ]}
+        <Col span={4}>
+          <Input
+            placeholder={'E.g.: Julio Costa'}
+            size={'large'}
+            onChange={(e) => {
+              setName(e.currentTarget.value);
+            }}
           />
         </Col>
+        <Col span={4}>{name}</Col>
       </Row>
     </div>
   );
